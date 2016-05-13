@@ -68,16 +68,16 @@ angular.module('7minWorkout')
       };
 
       // Uncomment this watch and comment the code inside .then function callback in startExercise function to see watch in action.
-      //$scope.$watch('currentExerciseDuration', function (nVal) {
-      //    if (nVal == $scope.currentExercise.duration) {
-      //        var next = getNextExercise($scope.currentExercise);
-      //        if (next) {
-      //            startExercise(next);
-      //        } else {
-      //            console.log("Workout complete!")
-      //        }
-      //    }
-      //});
+      $scope.$watch('currentExerciseDuration', function (nVal) {
+         if (nVal == $scope.currentExercise.duration) {
+             var next = getNextExercise($scope.currentExercise);
+             if (next) {
+                 startExercise(next);
+             } else {
+                 console.log("Workout complete!")
+             }
+         }
+      });
 
       var createWorkout = function () {
           var workout = new WorkoutPlan({
