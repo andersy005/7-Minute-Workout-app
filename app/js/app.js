@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('app', ['ngRoute', '7minWorkout']);
-config(function ($routeProvider) {
+config(function ($routeProvider, $sceDelegateProvider) {
   $routeProvider.when('/start', {
     templateUrl: 'partials/start.html'
   });
@@ -18,6 +18,12 @@ config(function ($routeProvider) {
   $routeProvider.otherwise ({
     redirectTo: '/start'
   });
+
+  $sceDelegateProvider.resourceUrlwhitelist([
+    // Allow same origin resource loads.
+    'self',
+    // Allow loading from our assets domain. Notice the difference between * and **.
+    'http://*.youtube.com/**']);
 
 });
 
